@@ -1,0 +1,43 @@
+{
+  "name": "ply-chess-tutor",
+  "version": "1.0.0",
+  "description": "Ply: a personal chess tutor PWA with Stockfish coaching, puzzles and lessons.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit -p . && vite build && node scripts/pack-source.mjs",
+    "preview": "vite preview --port 4173",
+    "test": "vitest run",
+    "data": "node scripts/build-data.mjs",
+    "qa:flows": "node scripts/qa/flows.mjs",
+    "qa:devices": "node scripts/qa/devices.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "@fontsource/atkinson-hyperlegible": "^5.3.0",
+    "chess.js": "^1.4.0",
+    "idb-keyval": "^6.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.7"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^153.0.0",
+    "@types/node": "^22.20.5",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "fflate": "^0.8.3",
+    "lighthouse": "^12.8.2",
+    "puppeteer-core": "^25.13.0",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vite-plugin-pwa": "^0.20.5",
+    "vitest": "^2.1.9"
+  },
+  "private": true
+}

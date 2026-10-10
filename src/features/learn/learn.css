@@ -1,0 +1,20 @@
+.placement-cta { display: flex; align-items: center; gap: var(--s3); text-decoration: none; color: inherit; }
+.placement-cta .grow { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.placement-cta strong { font-size: var(--fs-xl); font-weight: 560; }
+.plan { list-style: none; margin: 0; padding: 0; }
+.check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); flex: none; position: relative; }
+.check.on { background: var(--v-best); border-color: var(--v-best); }
+.check.on::after { content: ''; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.row.done .title::after { content: none; }
+.unit { display: flex; flex-direction: column; gap: var(--s2); }
+.unit + .unit { margin-top: var(--s3); }
+.unit-title { font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--ink-2); font-weight: 700; }
+.lesson .lesson-text { font-size: var(--fs-lg); line-height: 1.55; max-width: 62ch; }
+.taskboard { display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: var(--s4); align-items: start; margin: var(--s2) 0; }
+@media (max-width: 720px) { .taskboard { grid-template-columns: 1fr; } .task-board { width: min(100%, calc(100dvh - 320px)); min-width: min(100%, 280px); margin: 0 auto; } }
+.task-text { display: flex; flex-direction: column; gap: var(--s3); }
+.task-prompt { font-size: var(--fs-lg); line-height: 1.45; }
+.task-ok { border-left: 4px solid var(--v-best); padding-left: var(--s3); }
+.task-no { display: flex; flex-direction: column; gap: var(--s2); align-items: flex-start; border-left: 4px solid var(--v-miss); padding-left: var(--s3); }
+.op-msg { display: flex; flex-direction: column; gap: var(--s2); border-left: 3px solid var(--accent); padding-left: var(--s3); }
+.op-msg p { font-size: var(--fs-md); line-height: 1.5; }

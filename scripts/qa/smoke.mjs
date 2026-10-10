@@ -1,0 +1,25 @@
+import { launch, page, tapMove, dragMove, sleep } from './browser.mjs';
+const URL = process.env.URL || 'http://localhost:4173';
+const b = await launch();
+const { p, errors } = await page(b, { width: 390, height: 844 });
+await p.goto(URL + '/#/tutor', { waitUntil: 'networkidle0' });
+await p.screenshot({ path: 'reports/screens/setup-390.png' });
+await p.click('.btn.primary.big');
+await sleep(1500);
+await tapMove(p, 'e2', 'e4');
+await p.waitForFunction(() => document.querySelector('.coach-card[data-v]'), { timeout: 20000 });
+await sleep(1800);
+await p.screenshot({ path: 'reports/screens/play1-390.png' });
+await dragMove(p, 'g1', 'f3');
+await p.waitForFunction(() => document.querySelectorAll('.movelist .mv:not(.empty)').length >= 3, { timeout: 20000 });
+await sleep(2500);
+// hang the queen on purpose
+const fenNow = await p.evaluate(() => document.querySelector('.board').getAttribute('aria-label'));
+console.log('aria', fenNow.slice(0, 80));
+await dragMove(p, 'd1', 'e2');
+await sleep(4000);
+await p.screenshot({ path: 'reports/screens/play3-390.png' });
+const card = await p.evaluate(() => document.querySelector('.coach-panel')?.innerText.slice(0, 400));
+console.log(card);
+console.log('errors:', errors);
+await b.close();

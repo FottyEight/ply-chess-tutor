@@ -1,0 +1,8 @@
+node_modules
+dist
+.netlify
+.vercel
+data-src/lichess-puzzles
+reports/screens
+*.log
+tests/engine-node

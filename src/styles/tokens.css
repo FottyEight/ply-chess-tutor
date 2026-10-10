@@ -1,0 +1,95 @@
+/* Design tokens. Spacing grid: 4px. Type scale: minor third (1.2) from 16px. */
+:root {
+  --font-serif: 'Newsreader Variable', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-xs: 0.8125rem;   /* 13 */
+  --fs-sm: 0.875rem;    /* 14 */
+  --fs-md: 1rem;        /* 16 */
+  --fs-lg: 1.2rem;      /* 19.2 */
+  --fs-xl: 1.44rem;     /* 23 */
+  --fs-2xl: 1.728rem;   /* 27.6 */
+  --fs-3xl: 2.074rem;   /* 33.2 */
+
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s8: 32px; --s10: 40px; --s12: 48px;
+
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-pill: 999px;
+  --touch: 44px;
+  --dur: 180ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Light: cool stone paper, slate ink, one accent (Prussian ink blue) */
+  --bg: #eceeec;
+  --surface: #f8f9f7;
+  --surface-2: #e2e5e2;
+  --line: #cfd4d0;
+  --ink: #1c2421;
+  --ink-2: #4c5652;
+  --ink-3: #59625e;
+  --accent: #2c4a78;
+  --accent-ink: #ffffff;
+  --accent-soft: #dce4f0;
+  --focus: #2c4a78;
+  --danger: #a3262b;
+
+  /* Verdicts: a colour + symbol + label for each (never colour alone) */
+  --v-brilliant: #148a86;
+  --v-great: #3a6cc4;
+  --v-best: #4f8a2f;
+  --v-excellent: #6a9a44;
+  --v-good: #7c8a73;
+  --v-book: #94764f;
+  --v-inaccuracy: #b98a0c;
+  --v-mistake: #cf6a1f;
+  --v-miss: #c4475b;
+  --v-blunder: #b52a26;
+
+  /* Board (Slate is default; others are set by data-board on <html>) */
+  --sq-light: #dfe4e6;
+  --sq-dark: #8b9eab;
+  --sq-coord-light: #6d808d;
+  --sq-coord-dark: #eef2f4;
+  --sq-last: rgba(214, 178, 74, 0.42);
+  --sq-select: rgba(44, 74, 120, 0.35);
+  --sq-hint: rgba(28, 36, 33, 0.28);
+  --sq-check: rgba(181, 42, 38, 0.55);
+  --sq-explain: rgba(196, 71, 91, 0.32);
+  --arrow-best: rgba(79, 138, 47, 0.85);
+  --arrow-threat: rgba(181, 42, 38, 0.8);
+  --arrow-info: rgba(44, 74, 120, 0.8);
+
+  color-scheme: light;
+}
+
+:root[data-board='walnut'] { --sq-light: #ecdab9; --sq-dark: #ae8a68; --sq-coord-light: #9a7a5c; --sq-coord-dark: #f5ead6; }
+:root[data-board='moss'] { --sq-light: #e6e9d6; --sq-dark: #88a07c; --sq-coord-light: #74896a; --sq-coord-dark: #f1f4e6; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #15191e;
+    --surface: #1d2228;
+    --surface-2: #262c33;
+    --line: #343b43;
+    --ink: #e7eaec;
+    --ink-2: #b4bcc2;
+    --ink-3: #8f989f;
+    --accent: #8fb0e6;
+    --accent-ink: #10161e;
+    --accent-soft: #24334a;
+    --focus: #8fb0e6;
+    --danger: #ef7a76;
+    --v-brilliant: #3bb8b2; --v-great: #6c9be6; --v-best: #7cb85a; --v-excellent: #93c06f; --v-good: #9aa892;
+    --v-book: #bfa07a; --v-inaccuracy: #e0b43a; --v-mistake: #ec8f4a; --v-miss: #e8738a; --v-blunder: #ee6460;
+    --sq-hint: rgba(16, 22, 30, 0.38);
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #15191e; --surface: #1d2228; --surface-2: #262c33; --line: #343b43;
+  --ink: #e7eaec; --ink-2: #b4bcc2; --ink-3: #8f989f;
+  --accent: #8fb0e6; --accent-ink: #10161e; --accent-soft: #24334a; --focus: #8fb0e6; --danger: #ef7a76;
+  --v-brilliant: #3bb8b2; --v-great: #6c9be6; --v-best: #7cb85a; --v-excellent: #93c06f; --v-good: #9aa892;
+  --v-book: #bfa07a; --v-inaccuracy: #e0b43a; --v-mistake: #ec8f4a; --v-miss: #e8738a; --v-blunder: #ee6460;
+  --sq-hint: rgba(16, 22, 30, 0.38);
+  color-scheme: dark;
+}

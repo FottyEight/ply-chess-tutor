@@ -1,0 +1,86 @@
+{
+ "source": "Lichess puzzle database (CC0) https://database.lichess.org/#puzzles",
+ "note": "Source mirror pre-filtered to popularity >= 80, plays >= 200, rating deviation <= 90; per-puzzle popularity not available.",
+ "builtAt": "2026-10-10T18:58:29.623Z",
+ "total": 10000,
+ "rejectedInvalid": 0,
+ "themes": {
+  "mateIn1": 1936,
+  "mateIn2": 1560,
+  "fork": 1350,
+  "pin": 678,
+  "skewer": 690,
+  "discoveredAttack": 673,
+  "backRankMate": 679,
+  "hangingPiece": 674,
+  "trappedPiece": 466,
+  "deflection": 644,
+  "attraction": 602,
+  "advancedPawn": 675,
+  "endgame": 4014,
+  "opening": 2630,
+  "middlegame": 3356
+ },
+ "bands": [
+  {
+   "min": 600,
+   "max": 699,
+   "file": "p0600.json",
+   "count": 877
+  },
+  {
+   "min": 700,
+   "max": 799,
+   "file": "p0700.json",
+   "count": 944
+  },
+  {
+   "min": 800,
+   "max": 899,
+   "file": "p0800.json",
+   "count": 1018
+  },
+  {
+   "min": 900,
+   "max": 999,
+   "file": "p0900.json",
+   "count": 1058
+  },
+  {
+   "min": 1000,
+   "max": 1099,
+   "file": "p1000.json",
+   "count": 1067
+  },
+  {
+   "min": 1100,
+   "max": 1199,
+   "file": "p1100.json",
+   "count": 1016
+  },
+  {
+   "min": 1200,
+   "max": 1299,
+   "file": "p1200.json",
+   "count": 994
+  },
+  {
+   "min": 1300,
+   "max": 1399,
+   "file": "p1300.json",
+   "count": 978
+  },
+  {
+   "min": 1400,
+   "max": 1499,
+   "file": "p1400.json",
+   "count": 1005
+  },
+  {
+   "min": 1500,
+   "max": 1599,
+   "file": "p1500.json",
+   "count": 1043
+  }
+ ]
+}
