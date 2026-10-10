@@ -25,6 +25,9 @@ export interface BoardProps {
 interface PieceItem { key: string; sq: Square; type: PieceSymbol; color: Color }
 const BASE = import.meta.env.BASE_URL;
 const pieceUrl = (c: Color, t: PieceSymbol) => `${BASE}pieces/${c}${t.toUpperCase()}.svg`;
+export function clampBoardOffset(value: number, max: number) {
+  return Math.min(Math.max(value, 0), max);
+}
 let keySeq = 0;
 
 function piecesFrom(fen: string) {
@@ -90,9 +93,9 @@ export function Board(props: BoardProps) {
 
   const squareFromPoint = (clientX: number, clientY: number): Square | null => {
     const r = boardRef.current!.getBoundingClientRect();
-    const cx = Math.floor(((clientX - r.left) / r.width) * 8);
-    const cy = Math.floor(((clientY - r.top) / r.height) * 8);
-    if (cx < 0 || cx > 7 || cy < 0 || cy > 7) return null;
+    const cx = clampBoardOffset(Math.floor(((clientX - r.left) / r.width) * 8), 7);
+    const cy = clampBoardOffset(Math.floor(((clientY - r.top) / r.height) * 8), 7);
+    if (clientX < r.left || clientX > r.right || clientY < r.top || clientY > r.bottom) return null;
     return fromXY(cx, cy);
   };
 
@@ -133,8 +136,8 @@ export function Board(props: BoardProps) {
     const r = boardRef.current!.getBoundingClientRect();
     const size = r.width / 8;
     const lift = d.pointerType === 'touch' ? size * 0.75 : 0;
-    const x = e.clientX - r.left - size / 2;
-    const y = e.clientY - r.top - size / 2 - lift;
+    const x = clampBoardOffset(e.clientX - r.left - size / 2, r.width - size);
+    const y = clampBoardOffset(e.clientY - r.top - size / 2 - lift, r.height - size);
     if (d.el) d.el.style.transform = `translate(${x}px, ${y}px) scale(${d.pointerType === 'touch' ? 1.25 : 1.08})`;
     setHover(squareFromPoint(e.clientX, e.clientY - lift));
   };
